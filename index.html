@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo principal</a>
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
         <symbol id="i-play" viewBox="0 0 24 24">
             <path d="M6 3.5l14 8.5-14 8.5z" />
@@ -44,20 +44,18 @@
     <header class="topo">
         <div class="topo__esc">
             <div class="logo">
-                <!--Simula que o svg é um link para o leitor de tela. Não leva a nada por ser uma réplica.-->
-                <svg viewBox="0 0 110 30" role="link" aria-label="Netflix">
+                <svg viewBox="0 0 110 30" role="img" aria-label="Netflix">
                     <text x="0" y="27" textLength="110" lengthAdjust="spacingAndGlyphs">NETFLIX</text>
                 </svg>
             </div>
-            <nav class="menu" aria-label="Menu principal">
-                <!--Os botões possuem role="link" em menus e listas de navegação para que o leitor de tela os identifique como links.-->
-                <button type="button" role="link" class="menu__item menu__item--ativo" aria-current="page">Início</button>
-                <button type="button" role="link" class="menu__item">Séries</button>
-                <button type="button" role="link" class="menu__item">Filmes</button>
-                <button type="button" role="link" class="menu__item">Jogos</button>
-                <button type="button" role="link" class="menu__item">Bombando</button>
-                <button type="button" role="link" class="menu__item">Minha lista</button>
-                <button type="button" role="link" class="menu__item">Navegar por idiomas</button>
+            <nav class="menu" aria-label="Navegação principal">
+                <button type="button" class="menu__item menu__item--ativo" aria-current="page">Início</button>
+                <button type="button" class="menu__item">Séries</button>
+                <button type="button" class="menu__item">Filmes</button>
+                <button type="button" class="menu__item">Jogos</button>
+                <button type="button" class="menu__item">Bombando</button>
+                <button type="button" class="menu__item">Minha lista</button>
+                <button type="button" class="menu__item">Navegar por idiomas</button>
             </nav>
         </div>
         <div class="topo__dir">
@@ -67,12 +65,12 @@
                 </svg>
             </button>
             <button type="button" class="menu__item">Infantil</button>
-            <button type="button" class="icone-btn" aria-label="Notificações" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="icone-btn" aria-label="Notificações">
                 <svg class="icone" aria-hidden="true">
                     <use href="#i-sino" />
                 </svg>
             </button>
-            <button type="button" class="perfil" aria-label="Perfil de Gabriel H" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="perfil" aria-label="Perfil de Gabriel H">
                 <span class="avatar" aria-hidden="true">GH</span>
                 <svg class="icone" aria-hidden="true">
                     <use href="#i-seta" />
@@ -80,12 +78,12 @@
             </button>
         </div>
     </header>
-    <main>
-        <section class="destaque" aria-label="Destaque">
+    <main id="conteudo-principal" tabindex="-1">
+        <section class="destaque" aria-labelledby="destaque-titulo">
             <div class="destaque__conteudo">
-                <h1 class="destaque__tipo">Série</h1>
+                <p class="destaque__tipo">Série</p>
                 <!--O <br> tem role="presentation" porque só importa visualmente e o leitor de tela não deve quebrar a linha.-->
-                <h2 class="destaque__titulo">Ecos do<br role="presentation">Amanhã</h2>
+                <h1 class="destaque__titulo" id="destaque-titulo">Ecos do<br role="presentation">Amanhã</h1>
                 <p class="destaque__ranking">
                     <span class="selo-top10">TOP<br role="presentation">10</span>
                     Nº 2 em séries hoje
@@ -118,13 +116,13 @@
                 <span class="classificacao" role="img" aria-label="Classificação indicativa: 14 anos">14</span>
             </div>
         </section>
-        <section class="fileira fileira--primeira" aria-label="Continuar assistindo como Gabriel H">
-            <h2 class="fileira__titulo">Continuar assistindo como Gabriel H</h2>
+        <section class="fileira fileira--primeira" aria-labelledby="continuar-titulo">
+            <h2 class="fileira__titulo" id="continuar-titulo">Continuar assistindo como Gabriel H</h2>
             <div class="fileira__lista">
-                <button type="button" role="link" class="card arte-1">
+                <button type="button" class="card arte-1" aria-label="Continuar assistindo Noite Vermelha, 40% assistido">
                     <span class="card__capa">
                         <span class="card__titulo">Noite Vermelha</span>
-                        <span class="card__progresso" style="--p: 40%"></span>
+                        <span class="card__progresso" role="progressbar" aria-label="Noite Vermelha assistido" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" style="--p: 40%"></span>
                     </span>
                     <span class="card__info">
                         <svg class="card__acoes" aria-hidden="true">
@@ -134,10 +132,10 @@
                         <span class="card__tags">Suspense • Drama • Mistério</span>
                     </span>
                 </button>
-                <button type="button" role="link" class="card arte-2">
+                <button type="button" class="card arte-2" aria-label="Continuar assistindo O Último Farol, 75% assistido">
                     <span class="card__capa">
                         <span class="card__titulo">O Último Farol</span>
-                        <span class="card__progresso" style="--p: 75%"></span>
+                        <span class="card__progresso" role="progressbar" aria-label="O Último Farol assistido" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75" style="--p: 75%"></span>
                     </span>
                     <span class="card__info">
                         <svg class="card__acoes" aria-hidden="true">
@@ -147,10 +145,10 @@
                         <span class="card__tags">Ficção • Aventura • Drama</span>
                     </span>
                 </button>
-                <button type="button" role="link" class="card arte-3">
+                <button type="button" class="card arte-3" aria-label="Continuar assistindo Cidade Submersa, 15% assistido">
                     <span class="card__capa">
                         <span class="card__titulo">Cidade Submersa</span>
-                        <span class="card__progresso" style="--p: 15%"></span>
+                        <span class="card__progresso" role="progressbar" aria-label="Cidade Submersa assistido" aria-valuemin="0" aria-valuemax="100" aria-valuenow="15" style="--p: 15%"></span>
                     </span>
                     <span class="card__info">
                         <svg class="card__acoes" aria-hidden="true">
@@ -160,10 +158,10 @@
                         <span class="card__tags">Fantasia • Mistério • Ação</span>
                     </span>
                 </button>
-                <button type="button" role="link" class="card arte-4">
+                <button type="button" class="card arte-4" aria-label="Continuar assistindo Código Aurora, 60% assistido">
                     <span class="card__capa">
                         <span class="card__titulo">Código Aurora</span>
-                        <span class="card__progresso" style="--p: 60%"></span>
+                        <span class="card__progresso" role="progressbar" aria-label="Código Aurora assistido" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" style="--p: 60%"></span>
                     </span>
                     <span class="card__info">
                         <svg class="card__acoes" aria-hidden="true">
@@ -173,10 +171,10 @@
                         <span class="card__tags">Thriller • Tecnologia • Ação</span>
                     </span>
                 </button>
-                <button type="button" role="link" class="card arte-5">
+                <button type="button" class="card arte-5" aria-label="Continuar assistindo Vale dos Ecos, 90% assistido">
                     <span class="card__capa">
                         <span class="card__titulo">Vale dos Ecos</span>
-                        <span class="card__progresso" style="--p: 90%"></span>
+                        <span class="card__progresso" role="progressbar" aria-label="Vale dos Ecos assistido" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90" style="--p: 90%"></span>
                     </span>
                     <span class="card__info">
                         <svg class="card__acoes" aria-hidden="true">
@@ -186,10 +184,10 @@
                         <span class="card__tags">Aventura • Natureza • Família</span>
                     </span>
                 </button>
-                <button type="button" role="link" class="card arte-6">
+                <button type="button" class="card arte-6" aria-label="Continuar assistindo Quatro Estações, 30% assistido">
                     <span class="card__capa">
                         <span class="card__titulo">Quatro Estações</span>
-                        <span class="card__progresso" style="--p: 30%"></span>
+                        <span class="card__progresso" role="progressbar" aria-label="Quatro Estações assistido" aria-valuemin="0" aria-valuemax="100" aria-valuenow="30" style="--p: 30%"></span>
                     </span>
                     <span class="card__info">
                         <svg class="card__acoes" aria-hidden="true">
@@ -201,10 +199,10 @@
                 </button>
             </div>
         </section>
-        <section class="fileira" aria-label="Em alta no Brasil">
-            <h2 class="fileira__titulo">Em alta no Brasil</h2>
+        <section class="fileira" aria-labelledby="em-alta-titulo">
+            <h2 class="fileira__titulo" id="em-alta-titulo">Em alta no Brasil</h2>
             <div class="fileira__lista">
-                <button type="button" role="link" class="card arte-7">
+                <button type="button" class="card arte-7">
                     <span class="card__capa"><span class="card__titulo">Ciclo Zero</span></span>
                     <span class="card__info">
                         <svg class="card__acoes" aria-hidden="true">
@@ -214,7 +212,7 @@
                         <span class="card__tags">Ficção • Suspense • Ação</span>
                     </span>
                 </button>
-                <button type="button" role="link" class="card arte-8">
+                <button type="button" class="card arte-8">
                     <span class="card__capa"><span class="card__titulo">A Casa do Rio</span></span>
                     <span class="card__info">
                         <svg class="card__acoes" aria-hidden="true">
@@ -224,7 +222,7 @@
                         <span class="card__tags">Drama • Mistério • Família</span>
                     </span>
                 </button>
-                <button type="button" role="link" class="card arte-1">
+                <button type="button" class="card arte-1">
                     <span class="card__capa"><span class="card__titulo">Linha de Fogo</span></span>
                     <span class="card__info">
                         <svg class="card__acoes" aria-hidden="true">
@@ -234,7 +232,7 @@
                         <span class="card__tags">Ação • Crime • Thriller</span>
                     </span>
                 </button>
-                <button type="button" role="link" class="card arte-6">
+                <button type="button" class="card arte-6">
                     <span class="card__capa"><span class="card__titulo">Estrela Cadente</span></span>
                     <span class="card__info">
                         <svg class="card__acoes" aria-hidden="true">
@@ -244,7 +242,7 @@
                         <span class="card__tags">Animação • Aventura • Família</span>
                     </span>
                 </button>
-                <button type="button" role="link" class="card arte-4">
+                <button type="button" class="card arte-4">
                     <span class="card__capa"><span class="card__titulo">Mar de Cinzas</span></span>
                     <span class="card__info">
                         <svg class="card__acoes" aria-hidden="true">
@@ -254,7 +252,7 @@
                         <span class="card__tags">Histórico • Drama • Guerra</span>
                     </span>
                 </button>
-                <button type="button" role="link" class="card arte-5">
+                <button type="button" class="card arte-5">
                     <span class="card__capa"><span class="card__titulo">Velocidade Máxima</span></span>
                     <span class="card__info">
                         <svg class="card__acoes" aria-hidden="true">
@@ -266,51 +264,51 @@
                 </button>
             </div>
         </section>
-        <section class="fileira fileira--top10" aria-label="Top 10 séries no Brasil hoje">
-            <h2 class="fileira__titulo">Top 10 séries no Brasil hoje</h2>
+        <section class="fileira fileira--top10" aria-labelledby="top10-titulo">
+            <h2 class="fileira__titulo" id="top10-titulo">Top 10 séries no Brasil hoje</h2>
             <div class="fileira__lista">
                 <div class="top10__item">
-                    <span class="top10__numero">1</span>
-                    <button type="button" role="link" class="poster arte-3">
+                    <span class="top10__numero" aria-hidden="true">1</span>
+                    <button type="button" class="poster arte-3" aria-label="1º lugar: Eclipse">
                         <span class="poster__titulo">Eclipse</span>
                     </button>
                 </div>
                 <div class="top10__item">
-                    <span class="top10__numero">2</span>
-                    <button type="button" role="link" class="poster arte-1">
+                    <span class="top10__numero" aria-hidden="true">2</span>
+                    <button type="button" class="poster arte-1" aria-label="2º lugar: Ecos do Amanhã">
                         <span class="poster__titulo">Ecos do Amanhã</span>
                     </button>
                 </div>
                 <div class="top10__item">
-                    <span class="top10__numero">3</span>
-                    <button type="button" role="link" class="poster arte-6">
+                    <span class="top10__numero" aria-hidden="true">3</span>
+                    <button type="button" class="poster arte-6" aria-label="3º lugar: Delta 9">
                         <span class="poster__titulo">Delta 9</span>
                     </button>
                 </div>
                 <div class="top10__item">
-                    <span class="top10__numero">4</span>
-                    <button type="button" role="link" class="poster arte-5">
+                    <span class="top10__numero" aria-hidden="true">4</span>
+                    <button type="button" class="poster arte-5" aria-label="4º lugar: Sombras do Sul">
                         <span class="poster__titulo">Sombras do Sul</span>
                     </button>
                 </div>
                 <div class="top10__item">
-                    <span class="top10__numero">5</span>
-                    <button type="button" role="link" class="poster arte-7">
+                    <span class="top10__numero" aria-hidden="true">5</span>
+                    <button type="button" class="poster arte-7" aria-label="5º lugar: Rota 66">
                         <span class="poster__titulo">Rota 66</span>
                     </button>
                 </div>
                 <div class="top10__item">
-                    <span class="top10__numero">6</span>
-                    <button type="button" role="link" class="poster arte-4">
+                    <span class="top10__numero" aria-hidden="true">6</span>
+                    <button type="button" class="poster arte-4" aria-label="6º lugar: Meia-Noite">
                         <span class="poster__titulo">Meia-Noite</span>
                     </button>
                 </div>
             </div>
         </section>
-        <section class="fileira" aria-label="Porque você assistiu Noite Vermelha">
-            <h2 class="fileira__titulo">Porque você assistiu Noite Vermelha</h2>
+        <section class="fileira" aria-labelledby="recomendacoes-titulo">
+            <h2 class="fileira__titulo" id="recomendacoes-titulo">Porque você assistiu Noite Vermelha</h2>
             <div class="fileira__lista">
-                <button type="button" role="link" class="card arte-8">
+                <button type="button" class="card arte-8">
                     <span class="card__capa"><span class="card__titulo">Zona Cinzenta</span></span>
                     <span class="card__info">
                         <svg class="card__acoes" aria-hidden="true">
@@ -320,7 +318,7 @@
                         <span class="card__tags">Crime • Suspense • Drama</span>
                     </span>
                 </button>
-                <button type="button" role="link" class="card arte-3">
+                <button type="button" class="card arte-3">
                     <span class="card__capa"><span class="card__titulo">Caminhos Cruzados</span></span>
                     <span class="card__info">
                         <svg class="card__acoes" aria-hidden="true">
@@ -330,7 +328,7 @@
                         <span class="card__tags">Mistério • Drama • Romance</span>
                     </span>
                 </button>
-                <button type="button" role="link" class="card arte-2">
+                <button type="button" class="card arte-2">
                     <span class="card__capa"><span class="card__titulo">Inverno Eterno</span></span>
                     <span class="card__info">
                         <svg class="card__acoes" aria-hidden="true">
@@ -340,7 +338,7 @@
                         <span class="card__tags">Terror • Suspense • Fantasia</span>
                     </span>
                 </button>
-                <button type="button" role="link" class="card arte-7">
+                <button type="button" class="card arte-7">
                     <span class="card__capa"><span class="card__titulo">Chamas Azuis</span></span>
                     <span class="card__info">
                         <svg class="card__acoes" aria-hidden="true">
@@ -350,7 +348,7 @@
                         <span class="card__tags">Ação • Aventura • Ficção</span>
                     </span>
                 </button>
-                <button type="button" role="link" class="card arte-5">
+                <button type="button" class="card arte-5">
                     <span class="card__capa"><span class="card__titulo">Horizonte</span></span>
                     <span class="card__info">
                         <svg class="card__acoes" aria-hidden="true">
@@ -360,7 +358,7 @@
                         <span class="card__tags">Drama • Natureza • Família</span>
                     </span>
                 </button>
-                <button type="button" role="link" class="card arte-4">
+                <button type="button" class="card arte-4">
                     <span class="card__capa"><span class="card__titulo">Último Trem</span></span>
                     <span class="card__info">
                         <svg class="card__acoes" aria-hidden="true">
@@ -375,18 +373,18 @@
     </main>
     <footer class="rodape">
         <ul class="rodape__links">
-            <li><button type="button" role="link">Audiodescrição</button></li>
-            <li><button type="button" role="link">Central de Ajuda</button></li>
-            <li><button type="button" role="link">Cartões pré-pagos</button></li>
-            <li><button type="button" role="link">Imprensa</button></li>
-            <li><button type="button" role="link">Relações com Investidores</button></li>
-            <li><button type="button" role="link">Carreiras</button></li>
-            <li><button type="button" role="link">Termos de Uso</button></li>
-            <li><button type="button" role="link">Privacidade</button></li>
-            <li><button type="button" role="link">Avisos legais</button></li>
-            <li><button type="button" role="link">Preferências de cookies</button></li>
-            <li><button type="button" role="link">Informações corporativas</button></li>
-            <li><button type="button" role="link">Entre em contato</button></li>
+            <li><button type="button">Audiodescrição</button></li>
+            <li><button type="button">Central de Ajuda</button></li>
+            <li><button type="button">Cartões pré-pagos</button></li>
+            <li><button type="button">Imprensa</button></li>
+            <li><button type="button">Relações com Investidores</button></li>
+            <li><button type="button">Carreiras</button></li>
+            <li><button type="button">Termos de Uso</button></li>
+            <li><button type="button">Privacidade</button></li>
+            <li><button type="button">Avisos legais</button></li>
+            <li><button type="button">Preferências de cookies</button></li>
+            <li><button type="button">Informações corporativas</button></li>
+            <li><button type="button">Entre em contato</button></li>
         </ul>
         <button type="button" class="rodape__codigo">Código do serviço</button>
         <p class="rodape__aviso">Projeto educacional (SENAI). Não tem ligação com a Netflix.</p>
