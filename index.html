@@ -1,174 +1,408 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#141414">
-    <meta name="description" content="Réplica educacional de uma página inicial de streaming, com filmes reais e navegação acessível.">
     <title>Netflix - Início (réplica)</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo principal</a>
-
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="i-play" viewBox="0 0 24 24">
+            <path d="M6 3.5l14 8.5-14 8.5z" />
+        </symbol>
+        <symbol id="i-info" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M11 10h2v7h-2z" />
+            <circle cx="12" cy="7" r="1.3" />
+        </symbol>
+        <symbol id="i-busca" viewBox="0 0 24 24">
+            <circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2" />
+            <path d="M15 15l6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+        </symbol>
+        <symbol id="i-sino" viewBox="0 0 24 24">
+            <path d="M12 3a6 6 0 00-6 6v4l-2 3h16l-2-3V9a6 6 0 00-6-6z" />
+            <path d="M10 19a2 2 0 004 0z" />
+        </symbol>
+        <symbol id="i-mudo" viewBox="0 0 24 24">
+            <path d="M3 9v6h4l5 5V4L7 9z" />
+            <path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </symbol>
+        <symbol id="i-seta" viewBox="0 0 24 24">
+            <path d="M7 10l5 5 5-5z" />
+        </symbol>
+        <symbol id="i-acoes" viewBox="0 0 300 40">
+            <circle cx="20" cy="20" r="18" fill="#fff" />
+            <path d="M15 11.5l14 8.5-14 8.5z" fill="#000" />
+            <circle cx="68" cy="20" r="17" fill="#2a2a2a" stroke="#808080" stroke-width="2" />
+            <path d="M67 12h2v7h7v2h-7v7h-2v-7h-7v-2h7z" fill="#fff" />
+            <circle cx="280" cy="20" r="17" fill="#2a2a2a" stroke="#808080" stroke-width="2" />
+            <path d="M272 17l8 8 8-8" fill="none" stroke="#fff" stroke-width="2.6" />
+        </symbol>
+    </svg>
     <header class="topo">
-        <a class="marca" href="#inicio" aria-label="Netflix, início">NETFLIX</a>
-        <nav class="navegacao" aria-label="Navegação principal">
-            <a href="#inicio" aria-current="page">Início</a>
-            <a href="#series">Séries</a>
-            <a href="#em-alta">Em alta</a>
-            <a href="#ficcao-cientifica">Ficção científica</a>
-            <a href="#drama">Drama</a>
-        </nav>
-        <div class="perfil">
-            <span class="avatar" aria-hidden="true">GH</span>
-            <span class="perfil__nome">Gabriel Haberkamp</span>
+        <div class="topo__esc">
+            <div class="logo">
+                <!--Simula que o svg é um link para o leitor de tela. Não leva a nada por ser uma réplica.-->
+                <svg viewBox="0 0 110 30" role="link" aria-label="Netflix">
+                    <text x="0" y="27" textLength="110" lengthAdjust="spacingAndGlyphs">NETFLIX</text>
+                </svg>
+            </div>
+            <nav class="menu" aria-label="Menu principal">
+                <!--Os botões possuem role="link" em menus e listas de navegação para que o leitor de tela os identifique como links.-->
+                <button type="button" role="link" class="menu__item menu__item--ativo" aria-current="page">Início</button>
+                <button type="button" role="link" class="menu__item">Séries</button>
+                <button type="button" role="link" class="menu__item">Filmes</button>
+                <button type="button" role="link" class="menu__item">Jogos</button>
+                <button type="button" role="link" class="menu__item">Bombando</button>
+                <button type="button" role="link" class="menu__item">Minha lista</button>
+                <button type="button" role="link" class="menu__item">Navegar por idiomas</button>
+            </nav>
+        </div>
+        <div class="topo__dir">
+            <button type="button" class="icone-btn" aria-label="Buscar">
+                <svg class="icone" aria-hidden="true">
+                    <use href="#i-busca" />
+                </svg>
+            </button>
+            <button type="button" class="menu__item">Infantil</button>
+            <button type="button" class="icone-btn" aria-label="Notificações" aria-haspopup="true" aria-expanded="false">
+                <svg class="icone" aria-hidden="true">
+                    <use href="#i-sino" />
+                </svg>
+            </button>
+            <button type="button" class="perfil" aria-label="Perfil de Gabriel H" aria-haspopup="true" aria-expanded="false">
+                <span class="avatar" aria-hidden="true">GH</span>
+                <svg class="icone" aria-hidden="true">
+                    <use href="#i-seta" />
+                </svg>
+            </button>
         </div>
     </header>
-
-    <main id="conteudo-principal" tabindex="-1">
-        <section class="destaque" id="inicio" aria-labelledby="destaque-titulo">
-            <img
-                class="destaque__imagem"
-                src="https://image.tmdb.org/t/p/w1280/nCbkOyOMTEwlEV0LtCOvCnwEONA.jpg"
-                alt=""
-                fetchpriority="high">
-            <div class="destaque__sombra" aria-hidden="true"></div>
+    <main>
+        <section class="destaque" aria-label="Destaque">
             <div class="destaque__conteudo">
-                <p class="destaque__chamada">Uma aventura além das estrelas</p>
-                <h1 id="destaque-titulo">Interestelar</h1>
-                <p class="destaque__descricao">
-                    Em um futuro em que a Terra está à beira do colapso, um grupo de astronautas parte em busca de um novo lar para a humanidade.
+                <h1 class="destaque__tipo">Série</h1>
+                <!--O <br> tem role="presentation" porque só importa visualmente e o leitor de tela não deve quebrar a linha.-->
+                <h2 class="destaque__titulo">Ecos do<br role="presentation">Amanhã</h2>
+                <p class="destaque__ranking">
+                    <span class="selo-top10">TOP<br role="presentation">10</span>
+                    Nº 2 em séries hoje
                 </p>
-                <p class="destaque__detalhes">2014 <span aria-hidden="true">·</span> Ficção científica <span aria-hidden="true">·</span> Aventura</p>
-                <div class="destaque__acoes">
-                    <a class="botao botao--claro" href="#ficcao-cientifica">Ver filmes de ficção científica</a>
-                    <a class="botao botao--escuro" href="#series">Ver séries em destaque</a>
+                <p class="destaque__sinopse">
+                    Quando uma mensagem do futuro chega a um farol esquecido, uma jovem engenheira precisa escolher entre salvar a cidade
+                    ou o próprio passado.
+                </p>
+                <div class="destaque__botoes">
+                    <button type="button" class="botao botao--branco">
+                        <svg class="icone" aria-hidden="true">
+                            <use href="#i-play" />
+                        </svg>
+                        Assistir
+                    </button>
+                    <button type="button" class="botao botao--cinza">
+                        <svg class="icone" aria-hidden="true">
+                            <use href="#i-info" />
+                        </svg>
+                        Mais informações
+                    </button>
                 </div>
             </div>
-            <p class="destaque__credito">Imagem: The Movie Database (TMDB)</p>
+            <div class="destaque__lado">
+                <button type="button" class="redondo" aria-label="Ativar som">
+                    <svg class="icone" aria-hidden="true">
+                        <use href="#i-mudo" />
+                    </svg>
+                </button>
+                <span class="classificacao" role="img" aria-label="Classificação indicativa: 14 anos">14</span>
+            </div>
         </section>
-
-        <div class="catalogo">
-            <section class="secao secao--series" id="series" aria-labelledby="series-titulo">
-                <h2 id="series-titulo">Séries em destaque</h2>
-                <article class="serie-card" aria-labelledby="stranger-things-titulo">
-                    <img
-                        class="serie-card__poster"
-                        src="https://image.tmdb.org/t/p/w500/x2LSRK2Cm7MZhjluni1msVJ3wDF.jpg"
-                        alt=""
-                        loading="lazy">
-                    <div class="serie-card__conteudo">
-                        <h3 id="stranger-things-titulo"><span lang="en">Stranger Things</span></h3>
-                        <p class="serie-card__detalhes">2016–2025 <span aria-hidden="true">·</span> 5 temporadas <span aria-hidden="true">·</span> Ficção científica, fantasia e suspense</p>
-                        <p class="serie-card__sinopse">
-                            Em Hawkins, o desaparecimento de um garoto leva seus amigos a descobrir uma dimensão assustadora e os experimentos secretos que ameaçam a cidade.
-                        </p>
-                    </div>
-                </article>
-            </section>
-
-            <section class="secao" id="em-alta" aria-labelledby="em-alta-titulo">
-                <h2 id="em-alta-titulo">Filmes em destaque</h2>
-                <ul class="grade">
-                    <li class="filme">
-                        <div class="filme__card">
-                            <img src="https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg" alt="" loading="lazy">
-                            <div class="filme__texto"><h3 class="filme__titulo" id="filme-duna-destaque">Duna: Parte Dois</h3><p class="filme__ano">2024 · Ficção científica · Aventura</p></div>
-                        </div>
-                    </li>
-                    <li class="filme">
-                        <div class="filme__card">
-                            <img src="https://image.tmdb.org/t/p/w500/ptpr0kGAckfQkJeJIt8st5dglvd.jpg" alt="" loading="lazy">
-                            <div class="filme__texto"><h3 class="filme__titulo" id="filme-oppenheimer-destaque">Oppenheimer</h3><p class="filme__ano">2023 · Drama · História</p></div>
-                        </div>
-                    </li>
-                    <li class="filme">
-                        <div class="filme__card">
-                            <img src="https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg" alt="" loading="lazy">
-                            <div class="filme__texto"><h3 class="filme__titulo" id="filme-batman">The Batman</h3><p class="filme__ano">2022 · Ação · Crime</p></div>
-                        </div>
-                    </li>
-                    <li class="filme">
-                        <div class="filme__card">
-                            <img src="https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg" alt="" loading="lazy">
-                            <div class="filme__texto"><h3 class="filme__titulo" id="filme-vingadores">Vingadores: Ultimato</h3><p class="filme__ano">2019 · Ação · Aventura</p></div>
-                        </div>
-                    </li>
-                    <li class="filme">
-                        <div class="filme__card">
-                            <img src="https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg" alt="" loading="lazy">
-                            <div class="filme__texto"><h3 class="filme__titulo" id="filme-aranhaverso">Homem-Aranha: Através do Aranhaverso</h3><p class="filme__ano">2023 · Animação · Aventura</p></div>
-                        </div>
-                    </li>
-                    <li class="filme">
-                        <div class="filme__card">
-                            <img src="https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg" alt="" loading="lazy">
-                            <div class="filme__texto"><h3 class="filme__titulo" id="filme-titanic-destaque">Titanic</h3><p class="filme__ano">1997 · Romance · Drama</p></div>
-                        </div>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="secao" id="ficcao-cientifica" aria-labelledby="ficcao-titulo">
-                <h2 id="ficcao-titulo">Ficção científica</h2>
-                <ul class="grade">
-                    <li class="filme">
-                        <div class="filme__card">
-                            <img src="https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg" alt="" loading="lazy">
-                            <div class="filme__texto"><h3 class="filme__titulo" id="filme-interestelar">Interestelar</h3><p class="filme__ano">2014 · Ficção científica · Aventura</p></div>
-                        </div>
-                    </li>
-                    <li class="filme">
-                        <div class="filme__card">
-                            <img src="https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg" alt="" loading="lazy">
-                            <div class="filme__texto"><h3 class="filme__titulo" id="filme-origem">A Origem</h3><p class="filme__ano">2010 · Ficção científica · Ação</p></div>
-                        </div>
-                    </li>
-                    <li class="filme">
-                        <div class="filme__card">
-                            <img src="https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg" alt="" loading="lazy">
-                            <div class="filme__texto"><h3 class="filme__titulo" id="filme-matrix">Matrix</h3><p class="filme__ano">1999 · Ficção científica · Ação</p></div>
-                        </div>
-                    </li>
-                    <li class="filme">
-                        <div class="filme__card">
-                            <img src="https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg" alt="" loading="lazy">
-                            <div class="filme__texto"><h3 class="filme__titulo" id="filme-duna-ficcao">Duna: Parte Dois</h3><p class="filme__ano">2024 · Ficção científica · Aventura</p></div>
-                        </div>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="secao" id="drama" aria-labelledby="drama-titulo">
-                <h2 id="drama-titulo">Drama e histórias marcantes</h2>
-                <ul class="grade">
-                    <li class="filme">
-                        <div class="filme__card">
-                            <img src="https://image.tmdb.org/t/p/w500/ptpr0kGAckfQkJeJIt8st5dglvd.jpg" alt="" loading="lazy">
-                            <div class="filme__texto"><h3 class="filme__titulo" id="filme-oppenheimer-drama">Oppenheimer</h3><p class="filme__ano">2023 · Drama · História</p></div>
-                        </div>
-                    </li>
-                    <li class="filme">
-                        <div class="filme__card">
-                            <img src="https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg" alt="" loading="lazy">
-                            <div class="filme__texto"><h3 class="filme__titulo" id="filme-titanic-drama">Titanic</h3><p class="filme__ano">1997 · Romance · Drama</p></div>
-                        </div>
-                    </li>
-                    <li class="filme">
-                        <div class="filme__card">
-                            <img src="https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" alt="" loading="lazy">
-                            <div class="filme__texto"><h3 class="filme__titulo" id="filme-parasita">Parasita</h3><p class="filme__ano">2019 · Drama · Suspense</p></div>
-                        </div>
-                    </li>
-                </ul>
-            </section>
-        </div>
+        <section class="fileira fileira--primeira" aria-label="Continuar assistindo como Gabriel H">
+            <h2 class="fileira__titulo">Continuar assistindo como Gabriel H</h2>
+            <div class="fileira__lista">
+                <button type="button" role="link" class="card arte-1">
+                    <span class="card__capa">
+                        <span class="card__titulo">Noite Vermelha</span>
+                        <span class="card__progresso" style="--p: 40%"></span>
+                    </span>
+                    <span class="card__info">
+                        <svg class="card__acoes" aria-hidden="true">
+                            <use href="#i-acoes" />
+                        </svg>
+                        <span class="card__meta"><b>98% relevante</b> <span class="idade" role="img" aria-label="Classificação indicativa: 16 anos">16</span> 2 temporadas</span>
+                        <span class="card__tags">Suspense • Drama • Mistério</span>
+                    </span>
+                </button>
+                <button type="button" role="link" class="card arte-2">
+                    <span class="card__capa">
+                        <span class="card__titulo">O Último Farol</span>
+                        <span class="card__progresso" style="--p: 75%"></span>
+                    </span>
+                    <span class="card__info">
+                        <svg class="card__acoes" aria-hidden="true">
+                            <use href="#i-acoes" />
+                        </svg>
+                        <span class="card__meta"><b>96% relevante</b> <span class="idade" role="img" aria-label="Classificação indicativa: 14 anos">14</span> 1 temporada</span>
+                        <span class="card__tags">Ficção • Aventura • Drama</span>
+                    </span>
+                </button>
+                <button type="button" role="link" class="card arte-3">
+                    <span class="card__capa">
+                        <span class="card__titulo">Cidade Submersa</span>
+                        <span class="card__progresso" style="--p: 15%"></span>
+                    </span>
+                    <span class="card__info">
+                        <svg class="card__acoes" aria-hidden="true">
+                            <use href="#i-acoes" />
+                        </svg>
+                        <span class="card__meta"><b>93% relevante</b> <span class="idade" role="img" aria-label="Classificação indicativa: 12 anos">12</span> 3 temporadas</span>
+                        <span class="card__tags">Fantasia • Mistério • Ação</span>
+                    </span>
+                </button>
+                <button type="button" role="link" class="card arte-4">
+                    <span class="card__capa">
+                        <span class="card__titulo">Código Aurora</span>
+                        <span class="card__progresso" style="--p: 60%"></span>
+                    </span>
+                    <span class="card__info">
+                        <svg class="card__acoes" aria-hidden="true">
+                            <use href="#i-acoes" />
+                        </svg>
+                        <span class="card__meta"><b>91% relevante</b> <span class="idade" role="img" aria-label="Classificação indicativa: 16 anos">16</span> 1h 52min</span>
+                        <span class="card__tags">Thriller • Tecnologia • Ação</span>
+                    </span>
+                </button>
+                <button type="button" role="link" class="card arte-5">
+                    <span class="card__capa">
+                        <span class="card__titulo">Vale dos Ecos</span>
+                        <span class="card__progresso" style="--p: 90%"></span>
+                    </span>
+                    <span class="card__info">
+                        <svg class="card__acoes" aria-hidden="true">
+                            <use href="#i-acoes" />
+                        </svg>
+                        <span class="card__meta"><b>89% relevante</b> <span class="idade" role="img" aria-label="Classificação indicativa: 10 anos">10</span> 4 temporadas</span>
+                        <span class="card__tags">Aventura • Natureza • Família</span>
+                    </span>
+                </button>
+                <button type="button" role="link" class="card arte-6">
+                    <span class="card__capa">
+                        <span class="card__titulo">Quatro Estações</span>
+                        <span class="card__progresso" style="--p: 30%"></span>
+                    </span>
+                    <span class="card__info">
+                        <svg class="card__acoes" aria-hidden="true">
+                            <use href="#i-acoes" />
+                        </svg>
+                        <span class="card__meta"><b>87% relevante</b> <span class="idade" role="img" aria-label="Classificação indicativa: 12 anos">12</span> 2 temporadas</span>
+                        <span class="card__tags">Romance • Drama • Comédia</span>
+                    </span>
+                </button>
+            </div>
+        </section>
+        <section class="fileira" aria-label="Em alta no Brasil">
+            <h2 class="fileira__titulo">Em alta no Brasil</h2>
+            <div class="fileira__lista">
+                <button type="button" role="link" class="card arte-7">
+                    <span class="card__capa"><span class="card__titulo">Ciclo Zero</span></span>
+                    <span class="card__info">
+                        <svg class="card__acoes" aria-hidden="true">
+                            <use href="#i-acoes" />
+                        </svg>
+                        <span class="card__meta"><b>97% relevante</b> <span class="idade" role="img" aria-label="Classificação indicativa: 14 anos">14</span> 1 temporada</span>
+                        <span class="card__tags">Ficção • Suspense • Ação</span>
+                    </span>
+                </button>
+                <button type="button" role="link" class="card arte-8">
+                    <span class="card__capa"><span class="card__titulo">A Casa do Rio</span></span>
+                    <span class="card__info">
+                        <svg class="card__acoes" aria-hidden="true">
+                            <use href="#i-acoes" />
+                        </svg>
+                        <span class="card__meta"><b>95% relevante</b> <span class="idade" role="img" aria-label="Classificação indicativa: 16 anos">16</span> 2 temporadas</span>
+                        <span class="card__tags">Drama • Mistério • Família</span>
+                    </span>
+                </button>
+                <button type="button" role="link" class="card arte-1">
+                    <span class="card__capa"><span class="card__titulo">Linha de Fogo</span></span>
+                    <span class="card__info">
+                        <svg class="card__acoes" aria-hidden="true">
+                            <use href="#i-acoes" />
+                        </svg>
+                        <span class="card__meta"><b>94% relevante</b> <span class="idade" role="img" aria-label="Classificação indicativa: 18 anos">18</span> 1h 47min</span>
+                        <span class="card__tags">Ação • Crime • Thriller</span>
+                    </span>
+                </button>
+                <button type="button" role="link" class="card arte-6">
+                    <span class="card__capa"><span class="card__titulo">Estrela Cadente</span></span>
+                    <span class="card__info">
+                        <svg class="card__acoes" aria-hidden="true">
+                            <use href="#i-acoes" />
+                        </svg>
+                        <span class="card__meta"><b>92% relevante</b> <span class="idade" role="img" aria-label="Classificação indicativa: Livre">L</span> 1h 30min</span>
+                        <span class="card__tags">Animação • Aventura • Família</span>
+                    </span>
+                </button>
+                <button type="button" role="link" class="card arte-4">
+                    <span class="card__capa"><span class="card__titulo">Mar de Cinzas</span></span>
+                    <span class="card__info">
+                        <svg class="card__acoes" aria-hidden="true">
+                            <use href="#i-acoes" />
+                        </svg>
+                        <span class="card__meta"><b>90% relevante</b> <span class="idade" role="img" aria-label="Classificação indicativa: 14 anos">14</span> 3 temporadas</span>
+                        <span class="card__tags">Histórico • Drama • Guerra</span>
+                    </span>
+                </button>
+                <button type="button" role="link" class="card arte-5">
+                    <span class="card__capa"><span class="card__titulo">Velocidade Máxima</span></span>
+                    <span class="card__info">
+                        <svg class="card__acoes" aria-hidden="true">
+                            <use href="#i-acoes" />
+                        </svg>
+                        <span class="card__meta"><b>88% relevante</b> <span class="idade" role="img" aria-label="Classificação indicativa: 12 anos">12</span> 1h 58min</span>
+                        <span class="card__tags">Esporte • Ação • Comédia</span>
+                    </span>
+                </button>
+            </div>
+        </section>
+        <section class="fileira fileira--top10" aria-label="Top 10 séries no Brasil hoje">
+            <h2 class="fileira__titulo">Top 10 séries no Brasil hoje</h2>
+            <div class="fileira__lista">
+                <div class="top10__item">
+                    <span class="top10__numero">1</span>
+                    <button type="button" role="link" class="poster arte-3">
+                        <span class="poster__titulo">Eclipse</span>
+                    </button>
+                </div>
+                <div class="top10__item">
+                    <span class="top10__numero">2</span>
+                    <button type="button" role="link" class="poster arte-1">
+                        <span class="poster__titulo">Ecos do Amanhã</span>
+                    </button>
+                </div>
+                <div class="top10__item">
+                    <span class="top10__numero">3</span>
+                    <button type="button" role="link" class="poster arte-6">
+                        <span class="poster__titulo">Delta 9</span>
+                    </button>
+                </div>
+                <div class="top10__item">
+                    <span class="top10__numero">4</span>
+                    <button type="button" role="link" class="poster arte-5">
+                        <span class="poster__titulo">Sombras do Sul</span>
+                    </button>
+                </div>
+                <div class="top10__item">
+                    <span class="top10__numero">5</span>
+                    <button type="button" role="link" class="poster arte-7">
+                        <span class="poster__titulo">Rota 66</span>
+                    </button>
+                </div>
+                <div class="top10__item">
+                    <span class="top10__numero">6</span>
+                    <button type="button" role="link" class="poster arte-4">
+                        <span class="poster__titulo">Meia-Noite</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section class="fileira" aria-label="Porque você assistiu Noite Vermelha">
+            <h2 class="fileira__titulo">Porque você assistiu Noite Vermelha</h2>
+            <div class="fileira__lista">
+                <button type="button" role="link" class="card arte-8">
+                    <span class="card__capa"><span class="card__titulo">Zona Cinzenta</span></span>
+                    <span class="card__info">
+                        <svg class="card__acoes" aria-hidden="true">
+                            <use href="#i-acoes" />
+                        </svg>
+                        <span class="card__meta"><b>95% relevante</b> <span class="idade" role="img" aria-label="Classificação indicativa: 16 anos">16</span> 2 temporadas</span>
+                        <span class="card__tags">Crime • Suspense • Drama</span>
+                    </span>
+                </button>
+                <button type="button" role="link" class="card arte-3">
+                    <span class="card__capa"><span class="card__titulo">Caminhos Cruzados</span></span>
+                    <span class="card__info">
+                        <svg class="card__acoes" aria-hidden="true">
+                            <use href="#i-acoes" />
+                        </svg>
+                        <span class="card__meta"><b>94% relevante</b> <span class="idade" role="img" aria-label="Classificação indicativa: 14 anos">14</span> 1 temporada</span>
+                        <span class="card__tags">Mistério • Drama • Romance</span>
+                    </span>
+                </button>
+                <button type="button" role="link" class="card arte-2">
+                    <span class="card__capa"><span class="card__titulo">Inverno Eterno</span></span>
+                    <span class="card__info">
+                        <svg class="card__acoes" aria-hidden="true">
+                            <use href="#i-acoes" />
+                        </svg>
+                        <span class="card__meta"><b>92% relevante</b> <span class="idade" role="img" aria-label="Classificação indicativa: 16 anos">16</span> 3 temporadas</span>
+                        <span class="card__tags">Terror • Suspense • Fantasia</span>
+                    </span>
+                </button>
+                <button type="button" role="link" class="card arte-7">
+                    <span class="card__capa"><span class="card__titulo">Chamas Azuis</span></span>
+                    <span class="card__info">
+                        <svg class="card__acoes" aria-hidden="true">
+                            <use href="#i-acoes" />
+                        </svg>
+                        <span class="card__meta"><b>91% relevante</b> <span class="idade" role="img" aria-label="Classificação indicativa: 14 anos">14</span> 1h 44min</span>
+                        <span class="card__tags">Ação • Aventura • Ficção</span>
+                    </span>
+                </button>
+                <button type="button" role="link" class="card arte-5">
+                    <span class="card__capa"><span class="card__titulo">Horizonte</span></span>
+                    <span class="card__info">
+                        <svg class="card__acoes" aria-hidden="true">
+                            <use href="#i-acoes" />
+                        </svg>
+                        <span class="card__meta"><b>89% relevante</b> <span class="idade" role="img" aria-label="Classificação indicativa: 12 anos">12</span> 2 temporadas</span>
+                        <span class="card__tags">Drama • Natureza • Família</span>
+                    </span>
+                </button>
+                <button type="button" role="link" class="card arte-4">
+                    <span class="card__capa"><span class="card__titulo">Último Trem</span></span>
+                    <span class="card__info">
+                        <svg class="card__acoes" aria-hidden="true">
+                            <use href="#i-acoes" />
+                        </svg>
+                        <span class="card__meta"><b>86% relevante</b> <span class="idade" role="img" aria-label="Classificação indicativa: 16 anos">16</span> 1h 39min</span>
+                        <span class="card__tags">Thriller • Crime • Mistério</span>
+                    </span>
+                </button>
+            </div>
+        </section>
     </main>
+    <p class="rodape__autores">
+    <strong>Desenvolvido por:</strong>
+    Arthur Santos Lopes e Gabriel Heineck Haberkamp.
+</p>
 
+<p class="rodape__repositorio">
+    <strong>Repositório do projeto:</strong>
+    <a href="https://github.com/gabrielhhaber/replica_netflix_SENAI"
+       target="_blank"
+       rel="noopener noreferrer">
+        github.com/gabrielhhaber/replica_netflix_SENAI
+    </a>
+</p>
     <footer class="rodape">
-        <p>Projeto educacional independente. Não afiliado à Netflix.</p>
-        <p>Imagens de filmes fornecidas pelo The Movie Database (TMDB). Este projeto independente não é aprovado nem certificado pela TMDB; a disponibilidade dos títulos pode variar por serviço e região.</p>
+        <ul class="rodape__links">
+            <li><button type="button" role="link">Audiodescrição</button></li>
+            <li><button type="button" role="link">Central de Ajuda</button></li>
+            <li><button type="button" role="link">Cartões pré-pagos</button></li>
+            <li><button type="button" role="link">Imprensa</button></li>
+            <li><button type="button" role="link">Relações com Investidores</button></li>
+            <li><button type="button" role="link">Carreiras</button></li>
+            <li><button type="button" role="link">Termos de Uso</button></li>
+            <li><button type="button" role="link">Privacidade</button></li>
+            <li><button type="button" role="link">Avisos legais</button></li>
+            <li><button type="button" role="link">Preferências de cookies</button></li>
+            <li><button type="button" role="link">Informações corporativas</button></li>
+            <li><button type="button" role="link">Entre em contato</button></li>
+        </ul>
+        <button type="button" class="rodape__codigo">Código do serviço</button>
+        <p class="rodape__aviso">Projeto educacional (SENAI). Não tem ligação com a Netflix.</p>
     </footer>
 </body>
 </html>
