@@ -233,20 +233,21 @@ body > svg[aria-hidden="true"] {
   opacity: .95;
 }
 
-.destaque::after {
+.destaque__arte {
   position: absolute;
   z-index: -1;
-  right: 8%;
-  bottom: 0;
-  width: min(33vw, 23rem);
-  height: 82%;
-  content: "";
-  background:
-    linear-gradient(180deg, rgba(11, 11, 17, .0) 0 9%, rgba(11, 11, 17, .86) 9.5% 100%),
-    linear-gradient(90deg, #090910 0 11%, #353343 11% 17%, #14131b 17% 73%, #353343 73% 79%, #090910 79% 100%);
-  clip-path: polygon(40% 0, 60% 0, 65% 100%, 35% 100%);
-  opacity: .65;
+  top: 0;
+  right: 6%;
+  width: min(42vw, 30rem);
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: .85;
   pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 35%), linear-gradient(0deg, transparent 0, #000 40%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent 0, #000 35%), linear-gradient(0deg, transparent 0, #000 40%);
+  mask-composite: intersect;
 }
 
 .destaque__conteudo {
@@ -487,28 +488,30 @@ body > svg[aria-hidden="true"] {
     linear-gradient(135deg, var(--arte-base), #17151e);
 }
 
+.card__img,
+.poster__img {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card__img {
+  object-position: center 22%;
+}
+
+.poster__img {
+  object-position: center top;
+}
+
 .card__capa::before {
   position: absolute;
   z-index: -1;
   inset: 0;
   content: "";
-  background:
-    linear-gradient(113deg, transparent 0 35%, rgba(255, 255, 255, .08) 35.4% 36%, transparent 36.5% 100%),
-    radial-gradient(ellipse at 25% 75%, rgba(0, 0, 0, .15), transparent 55%);
-  opacity: .95;
-}
-
-.card__capa::after {
-  position: absolute;
-  z-index: -1;
-  right: 13%;
-  bottom: -22%;
-  width: 36%;
-  height: 90%;
-  content: "";
-  border-radius: 50% 50% 0 0;
-  background: linear-gradient(90deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .45));
-  transform: rotate(14deg);
+  background: linear-gradient(0deg, rgba(0, 0, 0, .88) 0%, rgba(0, 0, 0, .25) 45%, transparent 70%);
 }
 
 .card__titulo {
@@ -630,7 +633,7 @@ body > svg[aria-hidden="true"] {
   z-index: -1;
   inset: 0;
   content: "";
-  background: linear-gradient(122deg, transparent 0 42%, rgba(255, 255, 255, .08) 42.3% 43%, transparent 43.3% 100%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, .88) 0%, rgba(0, 0, 0, .2) 40%, transparent 65%);
 }
 
 .poster__titulo {
@@ -762,7 +765,7 @@ body > svg[aria-hidden="true"] {
       radial-gradient(ellipse at 78% 25%, rgba(113, 65, 107, .45) 0, transparent 30%),
       linear-gradient(0deg, #141414 0%, rgba(10, 10, 15, .78) 42%, rgba(10, 10, 15, .1) 100%);
   }
-  .destaque::after { right: 8%; width: 44vw; opacity: .45; }
+  .destaque__arte { right: 0; width: 70vw; opacity: .5; }
   .destaque__conteudo { width: 100%; }
   .destaque__titulo { font-size: clamp(2.6rem, 12vw, 4rem); }
   .destaque__lado { right: 0; bottom: 1.2rem; }
